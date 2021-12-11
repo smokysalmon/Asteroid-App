@@ -19,7 +19,15 @@ const App = () => {
   return (
     <div className="App">
       <TitleBar />
-      <Container imageInfo={imageInfo} setAsteroidList={setAsteroidList.bind(this)}/>
+      <Container 
+        imageInfo={imageInfo} 
+        start={start}
+        end={end}
+        asteroidList={asteroidList}
+        setAsteroidList={setAsteroidList.bind(this)}
+        setStart={setStart.bind(this)}
+        setEnd={setEnd.bind(this)}
+      />
     </div>
   );
 }
