@@ -1,0 +1,9 @@
+.title-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    height: 60px;
+    width: 100%;
+}
