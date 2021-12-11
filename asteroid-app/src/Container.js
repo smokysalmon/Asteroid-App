@@ -6,7 +6,7 @@ const Container = props => {
     return (
         <div className="container">
             <PictureOfTheDay imageInfo={props.imageInfo}/>
-            <SearchBar />
+            <SearchBar setAsteroidList={props.setAsteroidList}/>
         </div>
     );
 }
