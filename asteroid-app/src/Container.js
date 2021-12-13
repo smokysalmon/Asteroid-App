@@ -10,9 +10,11 @@ const Container = props => {
             <SearchBar 
                 start={props.start}
                 end={props.end}
+                isSearching={props.isSearching}
                 setAsteroidList={props.setAsteroidList}
                 setStart={props.setStart}
                 setEnd={props.setEnd}
+                setIsSearching={props.setIsSearching}
             />
             <AsteroidContainer asteroids={props.asteroidList} />
         </div>

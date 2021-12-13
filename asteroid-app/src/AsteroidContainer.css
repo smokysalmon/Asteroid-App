@@ -1,7 +1,13 @@
 .asteroid-cards-container {
-    display: flex;
+    display: grid;
+    grid-gap: 10px;
     width: 60%;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
+    grid-template-columns: auto auto auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .asteroid-cards-container {
+        width: 100%;
+        grid-template-columns: auto auto;
+    }
 }

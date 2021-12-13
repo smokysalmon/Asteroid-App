@@ -4,9 +4,11 @@ import Asteroid from './Asteroid.js';
 const SearchBar = props => {
     const handleSubmit = event => {
         event.preventDefault();
+        props.setIsSearching(true);
         fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${props.start}&end_date=${props.end}-08&api_key=yfJmwR0jhJqgSdDwQAYv8tSBjOtL2OYaB6bZMlQ5`)
             .then(res => res.json())
             .then(data => {
+                props.setIsSearching(false);
                 let list = [];
                 for (const key in data.near_earth_objects) {
                     let day = data.near_earth_objects[key];
@@ -21,14 +23,17 @@ const SearchBar = props => {
                 }
                 list.length ? props.setAsteroidList(list) : alert("No asteroids found.");
             })
-            .catch(err => alert("There was an error in searching."));
+            .catch(err => {
+                props.setIsSearching(false);
+                alert("There was an error in searching.");
+            });
     };
 
     return (
         <div className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
                 <div className="search-bar-container">
-                    <label className="search-label">Start date:
+                    <label className="search-label"><div>Start date:</div>
                         <input 
                             className="search-bar"
                             type="text" 
@@ -39,7 +44,7 @@ const SearchBar = props => {
                     </label>
                 </div>
                 <div className="search-bar-container">
-                    <label className="search-label">End date:
+                    <label className="search-label"><div>End date:</div>
                         <input 
                             className="search-bar"
                             type="text" 
@@ -51,6 +56,7 @@ const SearchBar = props => {
                 </div>
                 <input type="submit"/>
             </form>
+            <div className="searching">{props.isSearching ? "Searching" : ""}</div>
         </div>
     );
 };

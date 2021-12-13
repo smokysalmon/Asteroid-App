@@ -9,6 +9,7 @@ const App = () => {
   const [asteroidList, setAsteroidList] = useState([]);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     fetch("https://api.nasa.gov/planetary/apod?api_key=yfJmwR0jhJqgSdDwQAYv8tSBjOtL2OYaB6bZMlQ5")
@@ -29,9 +30,11 @@ const App = () => {
         start={start}
         end={end}
         asteroidList={asteroidList}
+        isSearching={isSearching}
         setAsteroidList={setAsteroidList.bind(this)}
         setStart={setStart.bind(this)}
         setEnd={setEnd.bind(this)}
+        setIsSearching={setIsSearching.bind(this)}
       />
     </div>
   );

@@ -6,7 +6,8 @@
 .search-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;;
+    gap: 10px;
+    padding: 1%;
 }
 
 .search-label {
@@ -16,4 +17,22 @@
 
 .search-label input {
     width: 70%;
+}
+
+.search-label div {
+    width: 25%;
+}
+
+.searching {
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-container {
+        width: 100%;
+    }
+
+    .search-label input {
+        width: 80%;
+    }
 }
