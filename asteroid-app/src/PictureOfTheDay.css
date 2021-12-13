@@ -1,4 +1,13 @@
 .picture-of-the-day {
-    width: 500px;
+    width: 100%;
     height: auto;
+}
+
+.picture-of-the-day-container {
+    width: 30%;;
+}
+
+.picture-of-the-day-container a {
+    display: flex;
+    justify-content: center;
 }

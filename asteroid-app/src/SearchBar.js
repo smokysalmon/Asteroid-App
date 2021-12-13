@@ -27,22 +27,28 @@ const SearchBar = props => {
     return (
         <div className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
-                <label>Start date:
-                    <input 
-                        type="text" 
-                        placeholder="YYYY-MM-DD" 
-                        value={props.start}
-                        onChange={event => props.setStart(event.target.value)}
-                    />
-                </label>
-                <label>End date:
-                    <input 
-                        type="text" 
-                        placeholder="YYYY-MM-DD"
-                        value={props.end}
-                        onChange={event => props.setEnd(event.target.value)}
-                    />
-                </label>
+                <div className="search-bar-container">
+                    <label className="search-label">Start date:
+                        <input 
+                            className="search-bar"
+                            type="text" 
+                            placeholder="YYYY-MM-DD" 
+                            value={props.start}
+                            onChange={event => props.setStart(event.target.value)}
+                        />
+                    </label>
+                </div>
+                <div className="search-bar-container">
+                    <label className="search-label">End date:
+                        <input 
+                            className="search-bar"
+                            type="text" 
+                            placeholder="YYYY-MM-DD"
+                            value={props.end}
+                            onChange={event => props.setEnd(event.target.value)}
+                        />
+                    </label>
+                </div>
                 <input type="submit"/>
             </form>
         </div>

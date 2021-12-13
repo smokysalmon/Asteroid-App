@@ -1,4 +1,5 @@
 import AsteroidCard from "./AsteroidCard";
+import "./AsteroidContainer.css";
 
 const AsteroidContainer = props => {
     const generateAsteroidCards = asteroids => {
@@ -11,7 +12,7 @@ const AsteroidContainer = props => {
     };
 
     return (
-        <div>
+        <div className="asteroid-cards-container">
             {generateAsteroidCards(props.asteroids)}
         </div>
     );

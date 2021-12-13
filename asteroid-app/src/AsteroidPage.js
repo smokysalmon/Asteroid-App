@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import TitleBar from "./TitleBar";
+import "./AsteroidPage.css"
 
 const AsteroidPage = () => {
     let params = useParams();
@@ -32,7 +33,7 @@ const AsteroidPage = () => {
         <div>
             <TitleBar />
             {hasLoaded ? 
-            <div>
+            <div className="asteroid-card-container">
                 <h4>{id}</h4>
                 <p>{`Name: ${designation}`}</p>
                 <p>{`Diameter: ${minMeter} - ${maxMeter} meter(s)`}</p>

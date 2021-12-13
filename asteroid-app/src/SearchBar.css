@@ -1,8 +1,19 @@
 .search-container {
-    width: 100%;
+    width: 30%;
+    margin: 0.5% 0%;
 }
 
 .search-form {
     display: flex;
     flex-direction: column;
+    gap: 10px;;
+}
+
+.search-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-label input {
+    width: 70%;
 }
