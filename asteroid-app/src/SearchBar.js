@@ -19,26 +19,30 @@ const SearchBar = props => {
                         list.push(a);
                     }
                 }
-                //console.log(data.near_earth_objects);
-                props.setAsteroidList(list);
-            });
+                list.length ? props.setAsteroidList(list) : alert("No asteroids found.");
+            })
+            .catch(err => alert("There was an error in searching."));
     };
 
     return (
         <div className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    placeholder="Enter the start date in YYYY-MM-DD." 
-                    value={props.start}
-                    onChange={event => props.setStart(event.target.value)}
-                />
-                <input 
-                    type="text" 
-                    placeholder="Enter the end date in YYYY-MM-DD."
-                    value={props.end}
-                    onChange={event => props.setEnd(event.target.value)}
-                />
+                <label>Start date:
+                    <input 
+                        type="text" 
+                        placeholder="YYYY-MM-DD" 
+                        value={props.start}
+                        onChange={event => props.setStart(event.target.value)}
+                    />
+                </label>
+                <label>End date:
+                    <input 
+                        type="text" 
+                        placeholder="YYYY-MM-DD"
+                        value={props.end}
+                        onChange={event => props.setEnd(event.target.value)}
+                    />
+                </label>
                 <input type="submit"/>
             </form>
         </div>

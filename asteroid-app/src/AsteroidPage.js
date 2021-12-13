@@ -10,6 +10,7 @@ const AsteroidPage = () => {
     const [maxMeter, setMaxMeter] = useState("");
     const [isHazardous, setIsHazardous] = useState("");
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [hasFailed, setHasFailed] = useState(false);
 
     useEffect(() => {
         fetch(`https://api.nasa.gov/neo/rest/v1/neo/${params.asteroidId}?api_key=yfJmwR0jhJqgSdDwQAYv8tSBjOtL2OYaB6bZMlQ5`)
@@ -23,17 +24,22 @@ const AsteroidPage = () => {
             setMaxMeter(Math.round(max));
             setIsHazardous(data.is_potentially_hazardous_asteroid);
             setHasLoaded(true);
-        });
+        })
+        .catch(err => setHasFailed(true));
     }, [])
 
     return (
         <div>
             <TitleBar />
-            <h4>{hasLoaded ? id : "Loading..."}</h4>
-            <p>{hasLoaded ? `Name: ${designation}` : ""}</p>
-            <p>{hasLoaded ? `Diameter: ${minMeter} - ${maxMeter} meter(s)` : ""}</p>
-            <p>{hasLoaded ? `Hazardous: ${isHazardous}` : ""}</p>
-            <Link to="/">Back to Home</Link>
+            {hasLoaded ? 
+            <div>
+                <h4>{id}</h4>
+                <p>{`Name: ${designation}`}</p>
+                <p>{`Diameter: ${minMeter} - ${maxMeter} meter(s)`}</p>
+                <p>{`Hazardous: ${isHazardous}`}</p>
+                <Link to="/">Back to Home</Link>
+            </div>
+            : hasFailed ? <div>"Couldn't find asteroid"</div> : <div>"Loading..."</div>}
         </div>
     );
 }

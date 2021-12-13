@@ -13,8 +13,13 @@ const App = () => {
   useEffect(() => {
     fetch("https://api.nasa.gov/planetary/apod?api_key=yfJmwR0jhJqgSdDwQAYv8tSBjOtL2OYaB6bZMlQ5")
       .then(res => res.json())
-      .then(data => setImageInfo(new ImageInfo(data.url, data.hdurl, data.explanation)));
-  }, [])
+      .then(data => setImageInfo(new ImageInfo(
+        data.url, 
+        data.hdurl, 
+        data.explanation)
+      ))
+      .catch(err => setImageInfo(new ImageInfo("", "", "Image failed to load.")));
+  }, []);
 
   return (
     <div className="App">
